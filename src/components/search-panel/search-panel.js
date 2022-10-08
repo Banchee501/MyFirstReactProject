@@ -24,7 +24,6 @@ class SearchPanel extends Component {
                 onChange={this.onUpdateSearch} />
         )
     }
-
 }
 
 export default SearchPanel;
