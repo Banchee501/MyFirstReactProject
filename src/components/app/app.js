@@ -7,7 +7,6 @@ import EmployeesList from '../employees-list/employees-list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
 import './app.css';
-import { Fragment } from 'react/cjs/react.production.min';
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +16,8 @@ class App extends Component {
         { name: 'John S.', salary: 500, increase: false, like: true, id: 1 },
         { name: 'Anastasia L.', salary: 2900, increase: true, like: false, id: 2 },
         { name: 'Alina S.', salary: 4200, increase: false, like: false, id: 3 }
-      ]
+      ],
+      term: ''
     }
     this.maxId = 4;
   }
@@ -59,20 +59,38 @@ class App extends Component {
     }))
   }
 
+  searchEmp = (items, term) => {
+    if (!term) {
+      return items;
+    }
+
+    return items.filter(item => {
+      return item.name.indexOf(term) > -1
+    })
+  }
+
+  onUpdateSearch = (term) => {
+    this.setState({ term });
+  }
+
   render() {
+    const { data, term } = this.state;
     const employees = this.state.data.length;
     const increased = this.state.data.filter(item => item.increase).length;
+    const visibleData = this.searchEmp(data, term);
+
+
     return (
       <div className="app">
         <AppInfo employees={employees} increased={increased} />
 
         <div className="search-panel">
-          <SearchPanel />
+          <SearchPanel onUpdateSearch={this.onUpdateSearch} />
           <AppFilter />
         </div>
 
         <EmployeesList
-          data={this.state.data}
+          data={visibleData}
           onDelete={this.deleteItem}
           onToggleProp={this.onToggleProp} />
         <EmployeesAddForm onAdd={this.addItem} />
