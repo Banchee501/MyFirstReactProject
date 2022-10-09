@@ -1,44 +1,33 @@
 .list-group-item {
     padding: 15px 20px;
     border-bottom: 1px solid #3d5a80;
-}
-
-.list-group-item:last-child {
-    border-bottom: none;
-}
-
-.list-group-item span {
+    span {
     line-height: 35px;
     font-size: 20px;
     cursor: pointer;
     min-width: 550px;
-}
-
-.list-group-item input {
+    }
+    input {
     line-height: 35px;
     font-size: 20px;
     text-align: center;
     border: 0;
-}
-
-.list-group-item button {
+    }
+    button {
     width: 35px;
     height: 35px;
     margin: 3px;
     font-size: 17px;
     border: none;
     cursor: pointer;
-}
-
-.list-group-item .btn-cookie {
+    }
+    .btn-cookie {
     color: #e09f3e;
-}
-
-.list-group-item .btn-trash {
+    }
+    .btn-trash {
     color: #e5383b;
-}
-
-.list-group-item .fa-star {
+    }
+    .fa-star {
     width: 35px;
     height: 35px;
     text-align: center;
@@ -48,6 +37,12 @@
     transition: 0.3s all;
     transform: translateX(30px);
     opacity: 0;
+    }
+
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
 }
 
 .list-group-item.like .fa-star {
