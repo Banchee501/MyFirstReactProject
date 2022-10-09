@@ -6,7 +6,7 @@ import AppFilter from '../app-filter/app-filter';
 import EmployeesList from '../employees-list/employees-list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
-import './app.css';
+import './app.scss';
 
 class App extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ class App extends Component {
           data={visibleData}
           onDelete={this.deleteItem}
           onToggleProp={this.onToggleProp}
-          onChangeSalary={this.onChangeSalary}/>
+          onChangeSalary={this.onChangeSalary} />
         <EmployeesAddForm onAdd={this.addItem} />
       </div>
     );
