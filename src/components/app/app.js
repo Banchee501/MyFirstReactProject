@@ -9,19 +9,17 @@ import EmployeesAddForm from '../employees-add-form/employees-add-form';
 import './app.scss';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        { name: 'John S.', salary: 500, increase: false, rise: true, id: 1 },
-        { name: 'Anastasia L.', salary: 2900, increase: true, rise: false, id: 2 },
-        { name: 'Alina S.', salary: 4200, increase: false, rise: false, id: 3 }
-      ],
-      term: '',
-      filter: ''
-    }
-    this.maxId = 4;
+  state = {
+    data: [
+      { name: 'John S.', salary: 500, increase: false, rise: true, id: 1 },
+      { name: 'Anastasia L.', salary: 2900, increase: true, rise: false, id: 2 },
+      { name: 'Alina S.', salary: 4200, increase: false, rise: false, id: 3 }
+    ],
+    term: '',
+    filter: ''
   }
+  maxId = 4;
+
 
   deleteItem = (id) => {
     this.setState(({ data }) => {
